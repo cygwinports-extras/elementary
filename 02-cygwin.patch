@@ -1,0 +1,26 @@
+--- origsrc/elementary-1.7.0/src/lib/elm_main.c	2012-08-22 05:09:12.000000000 -0500
++++ src/elementary-1.7.0/src/lib/elm_main.c	2012-09-12 13:34:23.012716100 -0500
+@@ -627,8 +627,13 @@ elm_quicklaunch_prepare(int argc __UNUSE
+      {
+         char *exe2, *p;
+         char *exename;
++#ifdef __CYGWIN__
++#define libext ".dll"
++#else
++#define libext ".so"
++#endif
+ 
+-        exe2 = malloc(strlen(exe) + 1 + 10);
++        exe2 = malloc(strlen(exe) + 1 + 7 + strlen(libext));
+         strcpy(exe2, exe);
+         p = strrchr(exe2, '/');
+         if (p) p++;
+@@ -638,7 +643,7 @@ elm_quicklaunch_prepare(int argc __UNUSE
+         *p = 0;
+         strcat(p, "../lib/");
+         strcat(p, exename);
+-        strcat(p, ".so");
++        strcat(p, libext);
+         if (!access(exe2, R_OK | X_OK))
+           {
+              free(exe);

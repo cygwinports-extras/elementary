@@ -1,0 +1,11 @@
+--- origsrc/elementary-1.7.0/configure.ac	2012-08-28 10:12:25.000000000 -0500
++++ src/elementary-1.7.0/configure.ac	2012-09-12 04:36:51.443906300 -0500
+@@ -732,7 +732,7 @@ extern char **environ;
+   AC_DEFINE(HAVE_ENVIRON, 1, [extern environ exists])
+ ])
+ 
+-AC_TRY_COMPILE([
++AC_TRY_LINK([
+ #include <stdlib.h>
+ ], [
+ clearenv();
