@@ -1,16 +1,17 @@
 NAME="elementary"
-VERSION=1.7.4
+VERSION=1.7.7
 RELEASE=1
-CATEGORY="X11"
+CATEGORY="Libs"
 SUMMARY="Enlightenment widget library"
 DESCRIPTION="A basic widget set library that is easy to use and is based on EFL.
 It provides the basic building blocks for creating applications and user
 interfaces."
 HOMEPAGE="http://www.enlightenment.org/"
-SRC_URI="http://download.enlightenment.org/releases/${P}.tar.bz2"
-PATCH_URI="01-clearenv.patch  02-cygwin.patch  03-ewebkit-prev.patch"
+SRC_URI="http://download.enlightenment.org/releases/${NAME}-${VERSION}.tar.bz2"
+PATCH_URI="01-clearenv.patch  02-cygwin.patch"
 
 PKG_NAMES="elementary libelementary1 libelementary-common libelementary-devel"
+elementary_CATEGORY="X11"
 elementary_SUMMARY="Enlightenment widget demos"
 elementary_CONTENTS="usr/bin/elem* usr/lib/elementary*.dll usr/share/applications/ usr/share/icons/"
 libelementary1_REQUIRES="libelementary-common"
